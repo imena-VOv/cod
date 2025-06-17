@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Игра-викторина</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="anime.min.js"></script>
+</head>
+<body>
+  <div id="setup" class="centered">
+  <div class="setup-card">
+    <h2>Настройки игры</h2>
+	<div id="newGameBlock">
+    <label>Количество команд:
+      <select id="teamCount">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </label>
+    <div id="teamNames"></div>
+
+    <label>Время всей игры (в минутах):
+      <input type="number" id="gameTime" min="1" value="5" />
+    </label>
+
+    <label>Время на вопрос (в секундах):
+      <input type="number" id="questionTime" min="5" value="30" />
+    </label>
+	
+	  <button class="start-button" onclick="startGame()">Начать игру</button>
+	</div>
+	
+	    <div id="continueBlock" class="hidden" style="margin-top: 20px;">
+  <button onclick="continueGame()">Продолжить игру</button>
+  <button onclick="resetProgress()">Сбросить прогресс</button>
+        </div>
+  </div>
+  </div>
+
+  <div id="gameArea" class="hidden">
+  <div id="rankChangePopup" class="hidden rank-popup"></div>
+    <div id="globalTimer"></div>
+    <div id="themes" class="grid"></div>
+    <div id="difficulties" class="grid hidden"></div>
+    <div id="question" class="hidden"></div>
+	<div id="questionTimer" class="hidden"></div>
+  </div>
+  
+    <div id="modal" class="hidden">
+  <div class="modal-content">
+    <h3>Игра завершена</h3>
+    <p id="winner"></p>
+    <p id="scoreStats"></p>
+    <p id="fastestTeam"></p>
+    <button onclick="location.reload()">Начать заново</button>
+  </div>
+</div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>
